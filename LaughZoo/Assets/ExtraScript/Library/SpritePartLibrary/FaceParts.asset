@@ -48,3 +48,11 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 12b8a7605288cba48a6504471bb73838, type: 3}
     - {fileID: 21300000, guid: 31b94f8938b52e84e86760e450eeff23, type: 3}
     - {fileID: 21300000, guid: 924c7d9aa4aa0ef4d91b648ec611c239, type: 3}
+    BGM: {fileID: 8300000, guid: 8fee79c0055c3ff4c83e39dd3d73b28a, type: 3}
+    NorthDudeAudio:
+    - {fileID: 8300000, guid: 3afba6099f91abc468d8f1d33b307966, type: 3}
+    - {fileID: 8300000, guid: d45a24b507a04cd4286b74e308e9999c, type: 3}
+    - {fileID: 8300000, guid: a2761023ff1ae7941a6d7eefdf5cdb42, type: 3}
+    - {fileID: 8300000, guid: 28f1ace09c0a29949b33321491220cfc, type: 3}
+    - {fileID: 8300000, guid: 38b3d94558b715c4ca365f1853df653e, type: 3}
+    - {fileID: 8300000, guid: 79839ed547da54646908f1e375f05c4c, type: 3}

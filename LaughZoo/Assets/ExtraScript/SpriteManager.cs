@@ -19,5 +19,9 @@ public class SpriteList
     public List<Sprite> EyebrowLeft;
     public List<Sprite> EyebrowRight;
 
-    public List <Sprite> spriteBase;
+    public List<Sprite> spriteBase;
+
+    public AudioClip BGM;
+
+    public List<AudioClip> NorthDudeAudio;
 }
