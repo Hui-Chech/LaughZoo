@@ -43,6 +43,8 @@ public class Steeper : Step
 
     public override void OnUpdate()
     {
+        if (IsFinsh()) return;
+
         if (index != currentIndex)
         {
             OnEnter();
