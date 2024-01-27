@@ -14,6 +14,8 @@ public class PlayerControl : MonoBehaviour
     }
     #endregion
 
+    [SerializeField] private SpriteManager spriteManager;
+
     [Header("Juicy Settings")]
     [SerializeField] private float sizeOnStamp;
     [SerializeField] private float stampDuration;
@@ -24,6 +26,10 @@ public class PlayerControl : MonoBehaviour
     private GameObject spriteObject;
     private Vector3 originalSpriteSize;
     private Collider2D _collider;
+
+    public bool isFaceDone { get; private set; } = false;
+    private bool[] partsCheck;
+    [SerializeField] private List<GameObject> partsObject = new List<GameObject>();
 
     private void Awake()
     {
@@ -37,9 +43,37 @@ public class PlayerControl : MonoBehaviour
         mainCam = Camera.main;
         spriteObject = transform.GetChild(0).gameObject;
         _collider = GetComponent<Collider2D>();
+        partsCheck = new bool[System.Enum.GetNames(typeof(PartType)).Length];
 
         originalSpriteSize = spriteObject.transform.localScale;
         _collider.enabled = false;
+    }
+
+    private void NewFaceInit()
+    {
+        // Clear parts
+        if (partsObject.Count > 0)
+        {
+            for (int i = 0; i < partsObject.Count; i++)
+            {
+                Destroy(partsObject[i]);
+            }
+            partsObject.Clear();
+        }
+
+        // Random face base
+        spriteObject.GetComponent<SpriteRenderer>().sprite = spriteManager.faceParts.spriteBase[Random.Range(0, spriteManager.faceParts.spriteBase.Count)];
+
+        // Clear check
+        for (int i = 0; i < partsCheck.Length; i++)
+        {
+            partsCheck[i] = false;
+        }
+    }
+
+    private void Start()
+    {
+        NewFaceInit();
     }
 
     void Update()
@@ -76,11 +110,30 @@ public class PlayerControl : MonoBehaviour
         LeanTween.scale(spriteObject, originalSpriteSize * sizeOnStamp, stampDuration).setEase(type).setLoopPingPong(1);
     }
 
+    private void FaceDoneCheck()
+    {
+        foreach (bool part in partsCheck)
+        {
+            if (!part) return;
+        }
+
+        isFaceDone = true;
+        Debug.Log("One face done!");
+
+        NewFaceInit();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var part = collision.GetComponent<FacePartBase>();
         if (part == null) return;
 
-        part.PartSmashed(spriteObject.transform);
+        partsObject.Add(part.gameObject);
+        var type = part.PartSmashed(spriteObject.transform);
+
+        if (partsCheck[(int)type]) return;
+
+        partsCheck[(int)type] = true;
+        FaceDoneCheck();
     }
 }

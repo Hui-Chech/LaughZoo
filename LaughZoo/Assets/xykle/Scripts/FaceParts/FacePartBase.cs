@@ -35,7 +35,6 @@ public abstract class FacePartBase : MonoBehaviour
 
 public enum PartType
 {
-    None,
     Eye_L,
     Eye_R,
     Nose,
