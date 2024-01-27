@@ -91,9 +91,9 @@ Shader "Unlit/Sprite_EdgeDetectShader_B"
                 float a = colorSobel(i.uv);
 
                 float d = dot(i.uv, float2(1, 1));
-                float r = sin(_Time.r * d);
-                float g = sin(_Time.g * d);
-                float b = sin(_Time.b * d);
+                float r = sin(d + _Time.r * 3);
+                float g = sin(d + _Time.g * 3);
+                float b = sin(d + _Time.b * 3);
 
                 return fixed4(r,g,b,a);
             }

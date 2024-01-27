@@ -1,12 +1,10 @@
-Shader "Unlit/Sprite_BlockSplitGlichShader"
+Shader "Unlit/Sprite_RadialDistortionShader"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
         _Color("Tint", Color) = (1,1,1,1)
         [HideInInspector] _RendererColor("RendererColor", Color) = (1,1,1,1)
-
-        _BlockSize("Split", Float) = 0
     }
     SubShader
     {
@@ -47,10 +45,9 @@ Shader "Unlit/Sprite_BlockSplitGlichShader"
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
+
             fixed4 _Color;
             fixed4 _RendererColor;
-
-            float _BlockSize;
 
             v2f vert (appdata v)
             {
@@ -62,34 +59,23 @@ Shader "Unlit/Sprite_BlockSplitGlichShader"
                 return o;
             }
 
-            float randomNoise(float x, float y)
-            {
-                return frac(sin(dot(float2(x, y), float2(12.9898, 78.233))) * 43758.5453);
-            }
-
             fixed4 frag (v2f i) : SV_Target
             {
-
-                float2 blockCoord = floor(i.uv * _BlockSize);
-                float block = (randomNoise(blockCoord.x, blockCoord.y) - 0.5) * 2;
-
-                float splitTime = randomNoise(floor(_Time.x * 100), 20);
-                fixed4 color = tex2D(_MainTex, i.uv + block * 0.2 * splitTime) * i.color;
+                float2 uv = i.uv - 0.5;
+                float distance = length(uv) * sin(_Time.x * 10) * 10;
 
 
-                
-                return color;
+                float4x4 rotateMat = 0;
+                float r = distance;
+                rotateMat[0] = float4(cos(r), -sin(r), 0, 1);
+                rotateMat[1] = float4(sin(r), +cos(r), 0, 1);
+                rotateMat[2] = float4(0, 0, 1, 1);
+                rotateMat[3] = float4(0, 0, 0, 1);
 
+                uv = mul(uv, rotateMat) + 0.5;
+                fixed4 col = tex2D(_MainTex, uv) * i.color;
 
-                
-
-
-
-
-                // return fixed4(color, alpha);
-                
-
-                // return col;
+                return col;
             }
             ENDCG
         }

@@ -68,6 +68,8 @@ Shader "Unlit/Sprite_RotateShader"
                 rotateMat[2] = float4(0, 0, 1, 1);
                 rotateMat[3] = float4(0, 0, 0, 1);
 
+                // return float4(i.uv, 0, 1);
+
                 float2 uv = mul(i.uv - 0.5, rotateMat) + 0.5;
                 fixed4 col = tex2D(_MainTex, uv) * i.color;
                 

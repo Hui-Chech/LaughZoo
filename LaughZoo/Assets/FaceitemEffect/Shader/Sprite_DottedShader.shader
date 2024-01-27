@@ -1,12 +1,10 @@
-Shader "Unlit/Sprite_BlockSplitGlichShader"
+Shader "Unlit/Sprite_DottedShader"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
         _Color("Tint", Color) = (1,1,1,1)
         [HideInInspector] _RendererColor("RendererColor", Color) = (1,1,1,1)
-
-        _BlockSize("Split", Float) = 0
     }
     SubShader
     {
@@ -43,14 +41,14 @@ Shader "Unlit/Sprite_BlockSplitGlichShader"
                 float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
                 fixed4 color : COLOR;
+                float4 worldPos : TEXCOORD1;
             };
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
+
             fixed4 _Color;
             fixed4 _RendererColor;
-
-            float _BlockSize;
 
             v2f vert (appdata v)
             {
@@ -58,35 +56,30 @@ Shader "Unlit/Sprite_BlockSplitGlichShader"
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 o.color = v.color * _Color * _RendererColor;
+                o.worldPos = mul (unity_ObjectToWorld, v.vertex);
 
                 return o;
             }
 
-            float randomNoise(float x, float y)
-            {
-                return frac(sin(dot(float2(x, y), float2(12.9898, 78.233))) * 43758.5453);
-            }
-
             fixed4 frag (v2f i) : SV_Target
             {
-
-                float2 blockCoord = floor(i.uv * _BlockSize);
-                float block = (randomNoise(blockCoord.x, blockCoord.y) - 0.5) * 2;
-
-                float splitTime = randomNoise(floor(_Time.x * 100), 20);
-                fixed4 color = tex2D(_MainTex, i.uv + block * 0.2 * splitTime) * i.color;
-
-
+                float2 uv = frac(i.worldPos * 5);
+                uv = (uv - 0.5) * 2;
                 
-                return color;
-
-
+                float dotted = 1 - floor(length(uv) + 0.5);
                 
+                float2 sampleUV = floor(i.uv * 50) / 50;
+                fixed4 col = tex2D(_MainTex, i.uv) * i.color;
+
+                clip(dotted - 0.5);
+                // grayscale = step(grayscale, 0.6);
+
+                // return grayscale;
 
 
-
-
-                // return fixed4(color, alpha);
+                return col;
+                
+                
                 
 
                 // return col;

@@ -70,7 +70,7 @@ Shader "Unlit/Sprite_BlockSplitGlichShader"
             fixed4 frag (v2f i) : SV_Target
             {
                 float2 blockCoord = floor(i.uv.y * _BlockSize);
-                float block = randomNoise(blockCoord.x, blockCoord.y) * 0.1;
+                float block = (randomNoise(blockCoord.x, blockCoord.y) - 0.5) * 0.5;
 
                 float splitTime = randomNoise(floor(_Time.x * 120), 20);
                 fixed4 color = tex2D(_MainTex, i.uv + float2(block, 0) * splitTime) * i.color;

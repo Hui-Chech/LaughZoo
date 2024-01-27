@@ -1,4 +1,4 @@
-Shader "Unlit/Sprite_BlockSplitGlichShader"
+Shader "Unlit/Sprite_DissolveShader"
 {
     Properties
     {
@@ -6,7 +6,7 @@ Shader "Unlit/Sprite_BlockSplitGlichShader"
         _Color("Tint", Color) = (1,1,1,1)
         [HideInInspector] _RendererColor("RendererColor", Color) = (1,1,1,1)
 
-        _BlockSize("Split", Float) = 0
+        _NoiseTex ("Noise", 2D) = "whiet" {}
     }
     SubShader
     {
@@ -45,12 +45,13 @@ Shader "Unlit/Sprite_BlockSplitGlichShader"
                 fixed4 color : COLOR;
             };
 
+            sampler2D _NoiseTex;
+
             sampler2D _MainTex;
             float4 _MainTex_ST;
+
             fixed4 _Color;
             fixed4 _RendererColor;
-
-            float _BlockSize;
 
             v2f vert (appdata v)
             {
@@ -62,34 +63,18 @@ Shader "Unlit/Sprite_BlockSplitGlichShader"
                 return o;
             }
 
-            float randomNoise(float x, float y)
-            {
-                return frac(sin(dot(float2(x, y), float2(12.9898, 78.233))) * 43758.5453);
-            }
-
             fixed4 frag (v2f i) : SV_Target
             {
+                fixed4 col = tex2D(_MainTex, i.uv) * i.color;
+                fixed4 noise = tex2D(_NoiseTex, i.uv);
 
-                float2 blockCoord = floor(i.uv * _BlockSize);
-                float block = (randomNoise(blockCoord.x, blockCoord.y) - 0.5) * 2;
+                float threshold = (sin(_Time.x * 10) + 1) * 0.5;
 
-                float splitTime = randomNoise(floor(_Time.x * 100), 20);
-                fixed4 color = tex2D(_MainTex, i.uv + block * 0.2 * splitTime) * i.color;
-
-
+                clip(noise - threshold);
                 
-                return color;
+                // return noise;
 
-
-                
-
-
-
-
-                // return fixed4(color, alpha);
-                
-
-                // return col;
+                return col;
             }
             ENDCG
         }

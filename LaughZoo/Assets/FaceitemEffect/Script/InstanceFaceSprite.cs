@@ -10,6 +10,11 @@ public class InstanceFaceSprite : MonoBehaviour
     public Material[] spriteMaterials;
     public Material defaultSpriteMaterial;
 
+    void OnDestroy()
+    {
+        instance = null;
+    }
+
     static void Initial()
     {
         if (instance != null) return;
