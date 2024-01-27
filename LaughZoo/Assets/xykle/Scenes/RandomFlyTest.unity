@@ -256,7 +256,7 @@ MonoBehaviour:
   rotateSpeed: 120
   minChangePositionTime: 0.3
   maxChangePositionTime: 0.5
-  angleRange: 5
+  angleRange: 1
 --- !u!1 &1972070674
 GameObject:
   m_ObjectHideFlags: 0
