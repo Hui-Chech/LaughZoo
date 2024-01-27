@@ -4,30 +4,42 @@ using UnityEngine;
 
 public abstract class FlyingSprite : MonoBehaviour
 {
-    [SerializeField] protected float flyingSpeed;
-    [SerializeField] protected float rotateSpeed;
-    [SerializeField] protected float minChangePositionTime;
-    [SerializeField] protected float maxChangePositionTime;
-    [SerializeField] protected float angleRange;
+    [SerializeField] protected float flyingSpeed = 5f;
+    [SerializeField] protected float rotateSpeed = 120f;
+    [SerializeField] protected float minChangePositionTime = .1f;
+    [SerializeField] protected float maxChangePositionTime = .5f;
+    [SerializeField] protected float angleRange = 1f;
 
     protected float nextAngle;
     protected Vector2 fixedForward;
     private Transform spriteTransform;
     private Vector2 border;
 
+    private void Awake()
+    {
+        InternalInit();
+    }
+
     protected virtual void Start()
     {
-        Init();
-
         fixedForward = Quaternion.AngleAxis(Random.Range(0f, 360f), Vector3.forward) * Vector2.up;
 
         StartCoroutine(TargetPositionUpdater());
     }
 
-    private void Init()
+    private void InternalInit()
     {
         spriteTransform = transform.GetChild(0);
         border = new Vector2(12.5f, 7f);
+    }
+
+    public void Init(float flyingSpeed = default, float rotateSpeed = default, float minChangePositionTime = default, float maxChangePositionTime = default , float angleRange = default)
+    {
+        this.flyingSpeed = flyingSpeed;
+        this.rotateSpeed = rotateSpeed;
+        this.minChangePositionTime = minChangePositionTime;
+        this.maxChangePositionTime = maxChangePositionTime;
+        this.angleRange = angleRange;
     }
 
     protected virtual void Update()

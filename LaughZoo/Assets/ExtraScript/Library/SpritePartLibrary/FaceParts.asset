@@ -12,10 +12,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e5188a3e2825ba4b937ffa65307d490, type: 3}
   m_Name: FaceParts
   m_EditorClassIdentifier: 
-  spriteList:
-    sprites:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+  faceParts:
+    Name: AnimalFaceParts
+    EyeLeft:
+    - {fileID: 21300000, guid: 6449d3ec48c5606469e003bc56025447, type: 3}
+    - {fileID: 21300000, guid: 027fc7a4da3ac834989669f38638f0d2, type: 3}
+    - {fileID: 21300000, guid: 09e11be472ff69d4da4c684045c52acd, type: 3}
+    - {fileID: 21300000, guid: 957585dcec0cf594abaceaa78955d854, type: 3}
+    - {fileID: 21300000, guid: cbb51855bed606a488857b172c014bbc, type: 3}
+    - {fileID: 21300000, guid: 0b80fe1a5dbb9644dab70f302d271b27, type: 3}
+    EyeRight:
+    - {fileID: 21300000, guid: f11e77229d419184e9388095d3d59d37, type: 3}
+    - {fileID: 21300000, guid: 6205a94038a8f454b849b5d50291dbf1, type: 3}
+    - {fileID: 21300000, guid: fbe2a086f639174429d5389c48edaa66, type: 3}
+    - {fileID: 21300000, guid: 4ee7beed6d2aef84c950c53111868379, type: 3}
+    - {fileID: 21300000, guid: fcde19e8892f8c641b643abb7e153c0c, type: 3}
+    - {fileID: 21300000, guid: 90444bbae65e1a944b5b4fd534526da6, type: 3}
+    Nose:
+    - {fileID: 21300000, guid: 07770d3d71b68194ea57d568ecd44f1c, type: 3}
+    - {fileID: 21300000, guid: 159eb3e4b9272704f8e4659dd0c5d047, type: 3}
+    - {fileID: 21300000, guid: ba105e1dd97a2fa43a84d6453b7085cc, type: 3}
+    - {fileID: 21300000, guid: 962c9beb43a50aa48b75341be4fb76a2, type: 3}
+    - {fileID: 21300000, guid: b359769efcb5515478aefec7832f3530, type: 3}
+    - {fileID: 21300000, guid: bdcc67d667958e94f95aefcc76a8b5f7, type: 3}
+    Mouth:
+    - {fileID: 21300000, guid: 46222aab3ae1c394ea9613833f94d6cb, type: 3}
+    - {fileID: 21300000, guid: c1c5a640feeddcd4c9d64f18cb810edb, type: 3}
+    - {fileID: 21300000, guid: 3df9cfb7cb39e78409dbdadce23296fa, type: 3}
+    - {fileID: 21300000, guid: c1c415dc06c179b43942b435d4141a25, type: 3}
+    - {fileID: 21300000, guid: 6d02f2bba3fe96e418aee73cea4e2472, type: 3}
+    - {fileID: 21300000, guid: 2dc783e3e70971b4d8619564cddb15dd, type: 3}
+    EyebrowLeft: []
+    EyebrowRight: []
+    spriteBase:
+    - {fileID: 21300000, guid: 12b8a7605288cba48a6504471bb73838, type: 3}
+    - {fileID: 21300000, guid: 31b94f8938b52e84e86760e450eeff23, type: 3}
+    - {fileID: 21300000, guid: 924c7d9aa4aa0ef4d91b648ec611c239, type: 3}
