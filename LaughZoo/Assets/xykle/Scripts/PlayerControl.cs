@@ -23,7 +23,7 @@ public class PlayerControl : MonoBehaviour
     private Camera mainCam;
     private GameObject spriteObject;
     private Vector3 originalSpriteSize;
-    private Collider2D collider;
+    private Collider2D _collider;
 
     private void Awake()
     {
@@ -36,10 +36,10 @@ public class PlayerControl : MonoBehaviour
     {
         mainCam = Camera.main;
         spriteObject = transform.GetChild(0).gameObject;
-        collider = GetComponent<Collider2D>();
+        _collider = GetComponent<Collider2D>();
 
         originalSpriteSize = spriteObject.transform.localScale;
-        collider.enabled = false;
+        _collider.enabled = false;
     }
 
     void Update()
@@ -68,8 +68,8 @@ public class PlayerControl : MonoBehaviour
         LeanTween.cancel(gameObject);
         LeanTween.cancel(spriteObject);
 
-        collider.enabled = true;
-        LeanTween.delayedCall(gameObject, stampDuration, () => collider.enabled = false);
+        _collider.enabled = true;
+        LeanTween.delayedCall(gameObject, stampDuration, () => _collider.enabled = false);
 
         // Juicy effect
         spriteObject.transform.localScale = originalSpriteSize;
@@ -78,7 +78,9 @@ public class PlayerControl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.transform.parent = spriteObject.transform;
-        collision.GetComponent<FlyingSprite>().enabled = false;
+        var part = collision.GetComponent<FacePartBase>();
+        if (part == null) return;
+
+        part.PartSmashed(spriteObject.transform);
     }
 }
