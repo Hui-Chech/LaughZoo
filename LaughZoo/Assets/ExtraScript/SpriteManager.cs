@@ -5,11 +5,15 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SpritePartLibrary", menuName = "New SpritePartLibrary", order = 1)]
 public class SpriteManager : ScriptableObject
 {
-    public SpriteList spriteList = new SpriteList();
+    public List<SpriteList> FaceParts = new List<SpriteList>();
 }
 
 [System.Serializable]
 public class SpriteList
 {
-    public List<Sprite> sprites = new List<Sprite>();
+    public string AnimalName;
+    public List<Sprite> EyeLeft = new List<Sprite>();
+    public List<Sprite> EyeRight = new List<Sprite>();
+    public List<Sprite> Nose = new List<Sprite>();
+    public List<Sprite> Mouth = new List<Sprite>();
 }

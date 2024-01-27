@@ -24,7 +24,10 @@ public class InstanceSpriteStep : Step
     }
     public override void OnEnter()
     {
-        InstanceFaceSprite.InstanceSprite(sprite, probability, parentTrs);
+        GameObject faceSpritePartParent = new GameObject("FaceSpritePartParent");
+
+        var facePart = InstanceFaceSprite.InstanceSprite(sprite, probability, faceSpritePartParent.transform);
+        faceSpritePartParent.AddComponent<RandomFly>();
     }
 
     public override void OnUpdate()
