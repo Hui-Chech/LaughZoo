@@ -16,4 +16,8 @@ public class SpriteList
     public List<Sprite> EyeRight;
     public List<Sprite> Nose;
     public List<Sprite> Mouth;
+    public List<Sprite> EyebrowLeft;
+    public List<Sprite> EyebrowRight;
+
+    public List <Sprite> spriteBase;
 }
