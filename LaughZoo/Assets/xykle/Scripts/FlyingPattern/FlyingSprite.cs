@@ -18,7 +18,6 @@ public abstract class FlyingSprite : MonoBehaviour
     private void Awake()
     {
         InternalInit();
-        Init();
     }
 
     protected virtual void Start()
