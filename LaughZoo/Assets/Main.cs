@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Main : MonoBehaviour
 {
+    [SerializeField] private SpriteManager spriteManager;
+
     private Steeper mainSteeper = new Steeper();
     void Start()
     {
