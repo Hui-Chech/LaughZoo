@@ -609,6 +609,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 2180339159048564979, guid: a6260c89daa073f47901ecd319cb664c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2180339159048564981, guid: a6260c89daa073f47901ecd319cb664c, type: 3}
       propertyPath: m_LocalScale.x
       value: 11.260845
@@ -967,6 +971,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteManager: {fileID: 11400000, guid: 7773336a6531b2e4ba1a52c29abe21c6, type: 2}
+  cameraMask:
+    serializedVersion: 2
+    m_Bits: 23
   sizeOnStamp: 1.3
   stampDuration: 0.1
   type: 5

@@ -15,6 +15,7 @@ public class PlayerControl : MonoBehaviour
     #endregion
 
     [SerializeField] private SpriteManager spriteManager;
+    [SerializeField] private LayerMask cameraMask;
 
     [Header("Juicy Settings")]
     [SerializeField] private float sizeOnStamp;
@@ -131,7 +132,7 @@ public class PlayerControl : MonoBehaviour
         LeanTween.cancel(gameObject);
         _collider.enabled = false;
 
-        UIManager.Instance.FaceShot(ImageShot.ShotImage(gameObject, 10f));
+        UIManager.Instance.FaceShot(ImageShot.ShotImage(gameObject, 10f, cameraMask));
         UIManager.Instance.UpdateScore(GetFinshIndex);
 
         NewFaceInit();

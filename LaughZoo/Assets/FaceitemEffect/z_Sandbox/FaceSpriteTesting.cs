@@ -30,7 +30,7 @@ public class FaceSpriteTesting : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.F2))
         {
-            ImageShot.ShotImage(shotTarget, 30);
+            //ImageShot.ShotImage(shotTarget, 30);
         }
 
         if(Input.GetKeyDown(KeyCode.F3))

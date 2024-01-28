@@ -16,16 +16,16 @@ public class ImageShot : MonoBehaviour
     }
 
 
-    public static Sprite ShotImage(GameObject target, float range)
+    public static Sprite ShotImage(GameObject target, float range, LayerMask mask)
     {
-        return CaptureImage(target.transform.position, range);
+        return CaptureImage(target.transform.position, range, mask);
     }
-    public static Sprite CaptureImage(Vector2 position, float range)
+    public static Sprite CaptureImage(Vector2 position, float range, LayerMask mask)
     {
         Initial();
 
         instance.SetCaemra(position, range);
-        Texture2D savedTexture = instance.SaveCameraView();
+        Texture2D savedTexture = instance.SaveCameraView(mask);
 
         return Sprite.Create(savedTexture, new Rect(0.0f, 0.0f, savedTexture.width, savedTexture.height), new Vector2(0.5f, 0.5f), 100.0f);
     }
@@ -47,10 +47,11 @@ public class ImageShot : MonoBehaviour
         camera.transform.position = position + Vector3.back * 20;
         camera.orthographicSize = size;
     }
-    Texture2D SaveCameraView()
+    Texture2D SaveCameraView(LayerMask mask)
     {
         RenderTexture screenTexture = new RenderTexture(resoluction.x, resoluction.y, 0);
         camera.targetTexture = screenTexture;
+        camera.cullingMask = mask;
         RenderTexture.active = screenTexture;
 
         camera.Render();
