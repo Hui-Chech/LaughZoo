@@ -69,18 +69,29 @@ public class Main : MonoBehaviour
 
         SetLoopSteeper();
 
+        mainSteeper.AddStep(new ClearpictureStep());
+
         mainSteeper.AddStep(new LoadSceneStep(SceneName.GameMain));
+
+        mainSteeper.AddStep(new SetBGMStep(spriteManager.faceParts.StartBGM));
+
+        mainSteeper.AddStep(new ShowStartCanvas());
+
+        mainSteeper.AddStep(new SetBGMStep(spriteManager.faceParts.GameBGM));
 
         mainSteeper.AddStep(new CountTimeStep(60f));
 
         mainSteeper.AddStep(new FinshStep());
+
+        mainSteeper.AddStep(new ShowEndBackGround());
+
+        mainSteeper.AddStep(new LoadpictureStep());
 
         mainSteeper.OnStart();
     }
 
     void Update()
     {
-        //mainSteeper.OnUpdate();
         audioSteeper.OnUpdate();
 
         partSteeper.OnUpdate();
@@ -92,24 +103,13 @@ public class Main : MonoBehaviour
             Debug.Log("Game over");
         }
     }
-    Sprite GetRandomSprite(List<Sprite> sprites)
-    {
-        Random.Range(0, sprites.Count - 1);
-
-        var curentSprite = sprites[Random.Range(0, sprites.Count - 1)];
-
-        sprites.Remove(curentSprite);
-
-        return curentSprite;
-    }
 
     public void SetAudioSteeper()
     {
-        audioSteeper.AddStep(new SetAudioStep(spriteManager.faceParts.BGM));
         audioSteeper.AddStep(new CountTimeStep(20));
-        audioSteeper.AddStep(new SetAudioSpeedStep(1.25f));
+        audioSteeper.AddStep(new SetBGMSpeedStep(1.25f));
         audioSteeper.AddStep(new CountTimeStep(20));
-        audioSteeper.AddStep(new SetAudioSpeedStep(1.5f));
+        audioSteeper.AddStep(new SetBGMSpeedStep(1.5f));
 
         audioSteeper.OnStart();
     }
@@ -122,16 +122,6 @@ public class Main : MonoBehaviour
         partSteeper.AddStep(new InstanceSpriteStep(GetRandomSprite(eyeRight), 1, transform, PartType.Eye_R));
         partSteeper.AddStep(new InstanceSpriteStep(GetRandomSprite(mouth), 1, transform, PartType.Mouth));
         partSteeper.AddStep(new InstanceSpriteStep(GetRandomSprite(nose), 1, transform, PartType.Nose));
-    }
-
-    void InstanceSpriteStep()
-    {
-        Init();
-
-        partSteeper.AddStep(new InstanceSpriteStep(GetRandomSprite(eyeRight), Random.Range(0, 1), transform, PartType.Eye_R));
-        partSteeper.AddStep(new InstanceSpriteStep(GetRandomSprite(eyeLeft), Random.Range(0, 1), transform, PartType.Eye_L));
-        partSteeper.AddStep(new InstanceSpriteStep(GetRandomSprite(mouth), Random.Range(0, 1), transform, PartType.Mouth));
-        partSteeper.AddStep(new InstanceSpriteStep(GetRandomSprite(nose), Random.Range(0, 1), transform, PartType.Nose));
     }
 
     public void SetLoopSteeper()
@@ -160,5 +150,24 @@ public class Main : MonoBehaviour
         }
 
         partSteeper.OnStart();
+    }
+    void InstanceSpriteStep()
+    {
+        Init();
+
+        partSteeper.AddStep(new InstanceSpriteStep(GetRandomSprite(eyeRight), Random.Range(0f,1f), transform, PartType.Eye_R));
+        partSteeper.AddStep(new InstanceSpriteStep(GetRandomSprite(eyeLeft), Random.Range(0f, 1f), transform, PartType.Eye_L));
+        partSteeper.AddStep(new InstanceSpriteStep(GetRandomSprite(mouth), Random.Range(0f, 1f), transform, PartType.Mouth));
+        partSteeper.AddStep(new InstanceSpriteStep(GetRandomSprite(nose), Random.Range(0f, 1f), transform, PartType.Nose));
+    }
+    Sprite GetRandomSprite(List<Sprite> sprites)
+    {
+        Random.Range(0, sprites.Count - 1);
+
+        var curentSprite = sprites[Random.Range(0, sprites.Count - 1)];
+
+        sprites.Remove(curentSprite);
+
+        return curentSprite;
     }
 }
