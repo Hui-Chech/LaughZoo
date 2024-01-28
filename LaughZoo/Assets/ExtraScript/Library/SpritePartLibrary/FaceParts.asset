@@ -114,3 +114,14 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 28f1ace09c0a29949b33321491220cfc, type: 3}
     - {fileID: 8300000, guid: 38b3d94558b715c4ca365f1853df653e, type: 3}
     - {fileID: 8300000, guid: 79839ed547da54646908f1e375f05c4c, type: 3}
+    NumberSprites:
+    - {fileID: 21300000, guid: 75b8eeec33902d044b29a7fea1ddfaa5, type: 3}
+    - {fileID: 21300000, guid: 1c5d5d5b2c36bc64fa3ecbad8453de22, type: 3}
+    - {fileID: 21300000, guid: 70bfd9deec0bc464d810e88af4c79e95, type: 3}
+    - {fileID: 21300000, guid: 73435660eb844354c9da6590e5624e49, type: 3}
+    - {fileID: 21300000, guid: c3a8fa10899de9042ab7cdf267c309da, type: 3}
+    - {fileID: 21300000, guid: f5bb81d4a1c04fd4185e4034032a28c6, type: 3}
+    - {fileID: 21300000, guid: 446d9d0d0b1cbbc46a9249cecb64c0b7, type: 3}
+    - {fileID: 21300000, guid: 1d9f3ca607312794c8f07ed2b6818430, type: 3}
+    - {fileID: 21300000, guid: aeb24100f9b07db499c2e16cc520b3b9, type: 3}
+    - {fileID: 21300000, guid: 81e9117c89649b14ba01902451d48221, type: 3}

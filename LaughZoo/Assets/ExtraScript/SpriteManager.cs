@@ -24,4 +24,6 @@ public class SpriteList
     public AudioClip BGM;
 
     public List<AudioClip> NorthDudeAudio;
+
+    public List<Sprite> NumberSprites;
 }
