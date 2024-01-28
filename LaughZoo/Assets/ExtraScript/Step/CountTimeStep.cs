@@ -32,3 +32,18 @@ public class CountTimeStep : Step
         return isFinsh;
     }
 }
+
+public class FinshStep : Step
+{
+    private bool isFinsh;
+    public override void OnEnter()
+    {
+        var player = GameObject.FindObjectOfType<PlayerControl>();
+        var finshIndex = player.GetFinshIndex;
+        Debug.Log($"§¹¦¨{finshIndex}¦¸");
+    }
+    public override bool IsFinsh()
+    {
+        return isFinsh;
+    }
+}
