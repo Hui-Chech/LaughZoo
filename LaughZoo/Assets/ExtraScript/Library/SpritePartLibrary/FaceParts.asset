@@ -106,7 +106,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: ff8b24aad557047439bf912bd6b5cb0b, type: 3}
     - {fileID: 21300000, guid: 85765afa589246c49b9eaaad9f3d2ae4, type: 3}
     - {fileID: 21300000, guid: 924c7d9aa4aa0ef4d91b648ec611c239, type: 3}
-    BGM: {fileID: 8300000, guid: 8fee79c0055c3ff4c83e39dd3d73b28a, type: 3}
+    GameBGM: {fileID: 8300000, guid: 8fee79c0055c3ff4c83e39dd3d73b28a, type: 3}
     NorthDudeAudio:
     - {fileID: 8300000, guid: 3afba6099f91abc468d8f1d33b307966, type: 3}
     - {fileID: 8300000, guid: d45a24b507a04cd4286b74e308e9999c, type: 3}
@@ -125,3 +125,4 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 1d9f3ca607312794c8f07ed2b6818430, type: 3}
     - {fileID: 21300000, guid: aeb24100f9b07db499c2e16cc520b3b9, type: 3}
     - {fileID: 21300000, guid: 81e9117c89649b14ba01902451d48221, type: 3}
+    StartBGM: {fileID: 8300000, guid: 601f98c5fcf813847b920bf40db5da37, type: 3}

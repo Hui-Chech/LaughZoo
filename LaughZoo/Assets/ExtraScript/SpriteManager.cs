@@ -21,9 +21,11 @@ public class SpriteList
 
     public List<Sprite> spriteBase;
 
-    public AudioClip BGM;
+    public AudioClip GameBGM;
 
     public List<AudioClip> NorthDudeAudio;
 
     public List<Sprite> NumberSprites;
+
+    public AudioClip StartBGM;
 }
