@@ -132,6 +132,7 @@ public class PlayerControl : MonoBehaviour
         _collider.enabled = false;
 
         UIManager.Instance.FaceShot(ImageShot.ShotImage(gameObject, 10f));
+        UIManager.Instance.UpdateScore(GetFinshIndex);
 
         NewFaceInit();
     }
