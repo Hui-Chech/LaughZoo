@@ -28,10 +28,13 @@ public class InstanceSpriteStep : Step
     {
         GameObject faceSpritePartParent = new GameObject("FaceSpritePartParent");
 
+        var rangeX = Random.Range(-36f, 36f);
+        var rangeY = Random.Range(-21f, 21f);
         var facePart = InstanceFaceSprite.InstanceSprite(sprite, probability, faceSpritePartParent.transform);
 
         var facePartBase = faceSpritePartParent.AddComponent<FacePartBase>();
         facePartBase.type = type;
+        facePartBase.transform.position += new Vector3(rangeX, rangeY, 0);
 
         isFinsh = true;
     }
