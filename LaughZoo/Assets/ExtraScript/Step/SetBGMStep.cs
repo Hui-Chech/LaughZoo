@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SetAudioStep : Step
+public class SetBGMStep : Step
 {
     AudioClip clip;
     bool isFinsh = false;
-    public SetAudioStep(AudioClip audioClip)
+    public SetBGMStep(AudioClip audioClip)
     {
         this.clip = audioClip;
     }
@@ -21,11 +21,11 @@ public class SetAudioStep : Step
     }
 }
 
-public class SetAudioSpeedStep : Step
+public class SetBGMSpeedStep : Step
 {
     float speed;
     bool isFinsh = false;
-    public SetAudioSpeedStep(float speed)
+    public SetBGMSpeedStep(float speed)
     {
         this.speed = speed;
     }
