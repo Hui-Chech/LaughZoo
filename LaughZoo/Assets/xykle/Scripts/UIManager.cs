@@ -17,8 +17,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private CanvasGroup shotGroup;
     [SerializeField] private List<Image> scoreImage;
     [SerializeField] private SpriteManager spriteManager;
+    [SerializeField] private Image countdownTimer;
+    [SerializeField] private RectTransform countdownTimerTransform;
 
     [Header("Juicy Settings")]
+    [SerializeField] private float allUIPopTime;
+    [SerializeField] private LeanTweenType allUIPopType;
     [SerializeField] private float shotDisplayTime = .5f;
     [SerializeField] private float fadeTime;
     [SerializeField] private float fadeSize;
@@ -43,6 +47,11 @@ public class UIManager : MonoBehaviour
     {
         originalSize = shotImage.transform.localScale;
         shotGroup.alpha = 0f;
+        countdownTimer.fillAmount = 1f;
+
+        // Pop
+        //countdownTimerTransform.localScale = Vector3.zero;
+        //LeanTween.scale(countdownTimerTransform, Vector3.one, allUIPopTime).setEase(allUIPopType);
     }
 
     public void FaceShot(Sprite sprite)
@@ -72,5 +81,25 @@ public class UIManager : MonoBehaviour
             scoreImage[i].transform.localScale = Vector3.one;
             LeanTween.scale((RectTransform)scoreImage[i].transform, Vector3.one * scoreScaleSize, scoreScaleTime).setEase(scoreType).setLoopPingPong(1);
         }
+    }
+
+    public void StartCountdown()
+    {
+        StartCoroutine(CountdownTimerUpdater());
+    }
+
+    private IEnumerator CountdownTimerUpdater()
+    {
+        var timer = 0f;
+
+        while (timer < 60f)
+        {
+            countdownTimer.fillAmount = Mathf.Lerp(1f, 0f, timer / 60f);
+
+            yield return null;
+            timer += Time.deltaTime;
+        }
+
+        countdownTimer.fillAmount = 0f;
     }
 }
