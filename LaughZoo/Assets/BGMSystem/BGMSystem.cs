@@ -43,6 +43,7 @@ public class BGMSystem : MonoBehaviour
     void Instance_SetMusic(AudioClip music, bool reset = true)
     {
         audio.clip = music;
+        audio.volume = 0.2f;
         audio.Play();
 
         if(reset)
