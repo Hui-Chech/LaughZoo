@@ -41,6 +41,8 @@ public class FinshStep : Step
         var player = GameObject.FindObjectOfType<PlayerControl>();
         var finshIndex = player.GetFinshIndex;
         Debug.Log($"§¹¦¨{finshIndex}¦¸");
+
+        isFinsh = true;
     }
     public override bool IsFinsh()
     {
