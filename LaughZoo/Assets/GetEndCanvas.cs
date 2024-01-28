@@ -10,4 +10,9 @@ public class GetEndCanvas : MonoBehaviour
     {
         return finshGroupRoot;
     }
+
+    public void ShowEndBackGround()
+    {
+        this.gameObject.SetActive(true);
+    }
 }
