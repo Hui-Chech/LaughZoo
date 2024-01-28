@@ -29,8 +29,13 @@ public class PlayerControl : MonoBehaviour
 
     public bool isFaceDone { get; private set; } = false;
     private bool[] partsCheck;
+    private int finshIndex = 0;
+
+
     [SerializeField] private List<GameObject> partsObject = new List<GameObject>();
 
+
+    public int GetFinshIndex { get { return finshIndex; } set { finshIndex = value; } }
     private void Awake()
     {
         SingletonInit();
@@ -118,6 +123,8 @@ public class PlayerControl : MonoBehaviour
         }
 
         isFaceDone = true;
+        finshIndex++;
+        AudioManager.PlayAudio(spriteManager.faceParts.NorthDudeAudio[Random.Range(0, spriteManager.faceParts.NorthDudeAudio.Count)], 1);
         Debug.Log("One face done!");
 
         NewFaceInit();
