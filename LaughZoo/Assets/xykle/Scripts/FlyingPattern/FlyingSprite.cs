@@ -30,7 +30,7 @@ public abstract class FlyingSprite : MonoBehaviour
     private void InternalInit()
     {
         spriteTransform = transform.GetChild(0);
-        border = new Vector2(12.5f, 7f);
+        border = new Vector2(36f, 21f);
     }
 
     public void Init(float flyingSpeed = default, float rotateSpeed = default, float minChangePositionTime = default, float maxChangePositionTime = default , float angleRange = default)
