@@ -51,3 +51,20 @@ public class ShowStartCanvas : Step
         return isFinsh;
     }
 }
+
+
+public class StartClock : Step
+{
+    bool isFinsh;
+    public override void OnEnter()
+    {
+        var pl = GameObject.FindFirstObjectByType<UIManager>();
+        pl.StartCountdown();
+
+        isFinsh = true;
+    }
+    public override bool IsFinsh()
+    {
+        return isFinsh;
+    }
+}

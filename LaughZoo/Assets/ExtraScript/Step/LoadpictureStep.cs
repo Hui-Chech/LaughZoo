@@ -23,9 +23,34 @@ public class LoadpictureStep : Step
                 texture.LoadImage(fileData);
 
                 GameObject currentPicture = new GameObject("SavedPicture");
-                currentPicture.transform.parent = GameObject.FindObjectOfType<GetEndCanvas>().GetFinshGroupRoot();
+                currentPicture.transform.parent = GameObject.FindObjectOfType<GetEndCanvas>(true).GetFinshGroupRoot();
                 var currentPictureImage = currentPicture.AddComponent<Image>();
                 currentPictureImage.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f), 100);
+            }
+        }
+        isFinsh = true;
+    }
+    public override bool IsFinsh()
+    {
+        return isFinsh;
+    }
+
+}
+
+public class ClearpictureStep : Step
+{
+    string folderPath = Application.dataPath + "/Capture";
+
+    bool isFinsh;
+    public override void OnEnter()
+    {
+        if (Directory.Exists(folderPath))
+        {
+            string[] pngFiles = Directory.GetFiles(folderPath, "*.png");
+
+            foreach (string pngFile in pngFiles)
+            {
+                File.Delete(pngFile);
             }
         }
         isFinsh = true;

@@ -5,8 +5,8 @@ using UnityEngine;
 public class BackGround : MonoBehaviour
 {
     static BackGround instance;
-    
-    
+
+
     [SerializeField] float speed = 1;
 
     SpriteRenderer renderer;
@@ -20,6 +20,11 @@ public class BackGround : MonoBehaviour
 
         renderer = GetComponent<SpriteRenderer>();
         material = renderer.material;
+    }
+
+    private void OnEnable()
+    {
+        material.SetFloat("_EffectTime", 0);
     }
     void Update()
     {

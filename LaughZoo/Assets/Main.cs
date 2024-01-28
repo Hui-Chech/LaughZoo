@@ -79,6 +79,8 @@ public class Main : MonoBehaviour
 
         mainSteeper.AddStep(new SetBGMStep(spriteManager.faceParts.GameBGM));
 
+        mainSteeper.AddStep(new StartClock());
+
         mainSteeper.AddStep(new CountTimeStep(60f));
 
         mainSteeper.AddStep(new FinshStep());
@@ -86,6 +88,8 @@ public class Main : MonoBehaviour
         mainSteeper.AddStep(new ShowEndBackGround());
 
         mainSteeper.AddStep(new LoadpictureStep());
+
+        mainSteeper.AddStep(new RestartGameStep());
 
         mainSteeper.OnStart();
     }

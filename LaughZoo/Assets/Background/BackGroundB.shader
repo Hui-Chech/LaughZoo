@@ -52,6 +52,7 @@ Shader "Unlit/BackgroundB"
             fixed4 _RendererColor;
 
                         float4 _HSVShift;
+                                    float _EffectTime;
 
 
             v2f vert (appdata v)
@@ -84,7 +85,7 @@ Shader "Unlit/BackgroundB"
             fixed4 frag (v2f i) : SV_Target
             {
                 float2 uv = i.uv - 0.5;
-                float distance = length(uv) * (_Time.x * 100);
+                float distance = length(uv) * (_EffectTime.x * 100);
 
 
                 float4x4 rotateMat = 0;
@@ -99,7 +100,7 @@ Shader "Unlit/BackgroundB"
                 fixed4 col = tex2D(_MainTex, uv) * i.color;
 
                 float3 hsv = rgb2hsv(col.rgb);
-                hsv.x = frac(hsv.x + _Time.x + distance);
+                hsv.x = frac(hsv.x + _EffectTime.x + distance);
                 hsv += _HSVShift.xyz;
                 
                 col.rgb = hsv2rgb(hsv);

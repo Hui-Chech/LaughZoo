@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CountTimeStep : Step
 {
@@ -39,11 +40,57 @@ public class FinshStep : Step
     public override void OnEnter()
     {
         var player = GameObject.FindObjectOfType<PlayerControl>();
+
+        player.isGameStarted = false;
+
         var finshIndex = player.GetFinshIndex;
+
         Debug.Log($"§¹¦¨{finshIndex}¦¸");
 
         isFinsh = true;
     }
+    public override bool IsFinsh()
+    {
+        return isFinsh;
+    }
+}
+
+public class ShowEndBackGround : Step
+{
+    bool isFinsh;
+    public override void OnEnter()
+    {
+        var endBackGround = GameObject.FindObjectOfType<GetEndCanvas>(true);
+        endBackGround.gameObject.SetActive(true);
+
+        isFinsh = true;
+    }
+    public override bool IsFinsh()
+    {
+        return isFinsh;
+    }
+}
+
+public class RestartGameStep : Step
+{
+    bool isFinsh;
+    public override void OnEnter()
+    {
+        var btn = GameObject.FindObjectOfType<GetEndCanvas>(true).GetResetBtn();
+        btn.onClick.RemoveAllListeners();
+        btn.onClick.AddListener(ResetGame);
+    }
+
+    private void ResetGame()
+    {
+        SceneManager.UnloadSceneAsync(SceneName.GameMain);
+        SceneManager.UnloadSceneAsync(0);
+
+        SceneManager.LoadSceneAsync(0);
+
+        isFinsh = true;
+    }
+
     public override bool IsFinsh()
     {
         return isFinsh;
