@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class PartMouth : FacePartBase
 {
-    public override PartType type { get; protected set; } = PartType.Mouth;
+    public PartType type { get; protected set; } = PartType.Mouth;
 }

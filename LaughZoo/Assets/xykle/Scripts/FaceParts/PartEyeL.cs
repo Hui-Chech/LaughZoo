@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class PartEyeL : FacePartBase
 {
-    public override PartType type { get; protected set; } = PartType.Eye_L;
+    public PartType type { get; protected set; } = PartType.Eye_L;
 }

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class PartNose : FacePartBase
 {
-    public override PartType type { get; protected set; } = PartType.Nose;
+    public PartType type { get; protected set; } = PartType.Nose;
 }

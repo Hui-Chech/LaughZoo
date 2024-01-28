@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D), typeof(FlyingSprite))]
-public abstract class FacePartBase : MonoBehaviour
+[RequireComponent(typeof(CircleCollider2D), typeof(RandomFly))]
+public class FacePartBase : MonoBehaviour
 {
-    public abstract PartType type { get; protected set; }
+    public PartType type;
     private Collider2D _collider;
     private FlyingSprite _flyingSprite;
 
@@ -17,7 +17,6 @@ public abstract class FacePartBase : MonoBehaviour
     private void InternalInit()
     {
         _collider = GetComponent<Collider2D>();
-        _flyingSprite = GetComponent<FlyingSprite>();
 
         _collider.isTrigger = true;
     }
@@ -25,7 +24,7 @@ public abstract class FacePartBase : MonoBehaviour
     public virtual PartType PartSmashed(Transform parent)
     {
         _collider.enabled = false;
-        _flyingSprite.enabled = false;
+        GetComponent<FlyingSprite>().enabled = false;
 
         transform.parent = parent;
 
