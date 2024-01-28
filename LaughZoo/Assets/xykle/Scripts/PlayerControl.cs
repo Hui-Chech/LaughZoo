@@ -131,6 +131,8 @@ public class PlayerControl : MonoBehaviour
         LeanTween.cancel(gameObject);
         _collider.enabled = false;
 
+        UIManager.Instance.FaceShot(ImageShot.ShotImage(gameObject, 10f));
+
         NewFaceInit();
     }
 

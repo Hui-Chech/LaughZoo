@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -18,16 +16,18 @@ public class ImageShot : MonoBehaviour
     }
 
 
-    public static void ShotImage(GameObject target, float range)
+    public static Sprite ShotImage(GameObject target, float range)
     {
-        CaptureImage(target.transform.position, range);
+        return CaptureImage(target.transform.position, range);
     }
-    public static void CaptureImage(Vector2 position, float range)
+    public static Sprite CaptureImage(Vector2 position, float range)
     {
         Initial();
 
         instance.SetCaemra(position, range);
-        instance.SaveCameraView();
+        Texture2D savedTexture = instance.SaveCameraView();
+
+        return Sprite.Create(savedTexture, new Rect(0.0f, 0.0f, savedTexture.width, savedTexture.height), new Vector2(0.5f, 0.5f), 100.0f);
     }
 
     static void Initial()
@@ -47,7 +47,7 @@ public class ImageShot : MonoBehaviour
         camera.transform.position = position + Vector3.back * 20;
         camera.orthographicSize = size;
     }
-    void SaveCameraView()
+    Texture2D SaveCameraView()
     {
         RenderTexture screenTexture = new RenderTexture(resoluction.x, resoluction.y, 0);
         camera.targetTexture = screenTexture;
@@ -57,6 +57,7 @@ public class ImageShot : MonoBehaviour
 
         Texture2D renderedTexture = new Texture2D(resoluction.x, resoluction.y);
         renderedTexture.ReadPixels(new Rect(0, 0, resoluction.x, resoluction.y), 0, 0);
+        renderedTexture.Apply();
         RenderTexture.active = null;
 
         byte[] byteArray = renderedTexture.EncodeToPNG();
@@ -65,5 +66,7 @@ public class ImageShot : MonoBehaviour
         string imageName = DateTime.Now.ToString("yyyyMMddHHmmssffff");
         System.IO.Directory.CreateDirectory(folderPath);
         File.WriteAllBytes($"{folderPath}/{imageName}.png", byteArray);
+
+        return renderedTexture;
     }
 }
