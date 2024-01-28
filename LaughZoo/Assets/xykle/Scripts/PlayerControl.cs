@@ -29,13 +29,12 @@ public class PlayerControl : MonoBehaviour
 
     public bool isFaceDone { get; private set; } = false;
     private bool[] partsCheck;
-    private int finshIndex = 0;
-
-
-    [SerializeField] private List<GameObject> partsObject = new List<GameObject>();
-
 
     public int GetFinshIndex { get { return finshIndex; } set { finshIndex = value; } }
+    private int finshIndex = 0;
+
+    private List<GameObject> partsObject = new List<GameObject>();
+
     private void Awake()
     {
         SingletonInit();
@@ -110,6 +109,8 @@ public class PlayerControl : MonoBehaviour
         _collider.enabled = true;
         LeanTween.delayedCall(gameObject, stampDuration, () => _collider.enabled = false);
 
+        CameraShake.ShakeCamera();
+
         // Juicy effect
         spriteObject.transform.localScale = originalSpriteSize;
         LeanTween.scale(spriteObject, originalSpriteSize * sizeOnStamp, stampDuration).setEase(type).setLoopPingPong(1);
@@ -125,7 +126,10 @@ public class PlayerControl : MonoBehaviour
         isFaceDone = true;
         finshIndex++;
         AudioManager.PlayAudio(spriteManager.faceParts.NorthDudeAudio[Random.Range(0, spriteManager.faceParts.NorthDudeAudio.Count)], 1);
-        Debug.Log("One face done!");
+        Debug.Log(string.Format("One face done! {0} combo(s)!", GetFinshIndex));
+
+        LeanTween.cancel(gameObject);
+        _collider.enabled = false;
 
         NewFaceInit();
     }
