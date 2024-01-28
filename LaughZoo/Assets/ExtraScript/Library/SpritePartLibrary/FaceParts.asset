@@ -16,37 +16,95 @@ MonoBehaviour:
     Name: AnimalFaceParts
     EyeLeft:
     - {fileID: 21300000, guid: 6449d3ec48c5606469e003bc56025447, type: 3}
+    - {fileID: 21300000, guid: 4fbb76601e0510d4db6860bc22d77f97, type: 3}
     - {fileID: 21300000, guid: 027fc7a4da3ac834989669f38638f0d2, type: 3}
     - {fileID: 21300000, guid: 09e11be472ff69d4da4c684045c52acd, type: 3}
+    - {fileID: 21300000, guid: 89707186b98dd734dbac7316cfd93f55, type: 3}
+    - {fileID: 21300000, guid: ad51b409b4a49a349803d1b02bb36e59, type: 3}
+    - {fileID: 21300000, guid: 730fa7133d756704096e3a3ddaf99b79, type: 3}
+    - {fileID: 21300000, guid: 4aaa38c1f597d3646bf23d32eb6bf9b6, type: 3}
+    - {fileID: 21300000, guid: fe8192f98963d8f47ba70d5c6a14a4d2, type: 3}
+    - {fileID: 21300000, guid: 8c1020a51a120354d981e7076ac3b308, type: 3}
+    - {fileID: 21300000, guid: 49abbd621cd77e04f8c22b00de5e2837, type: 3}
+    - {fileID: 21300000, guid: 80296218805ce2043a51a519d9cebfee, type: 3}
+    - {fileID: 21300000, guid: d435fbaa543793640a9ee7f27c865c69, type: 3}
+    - {fileID: 21300000, guid: 94193fc4de0942f409e26c6cb9b72f2a, type: 3}
+    - {fileID: 21300000, guid: da09041d93a7053409354b82f9f96423, type: 3}
+    - {fileID: 21300000, guid: 7914784bbe71d9d4699a8abaf51b7770, type: 3}
+    - {fileID: 21300000, guid: 6469f2ac163866545bc54ff003aafa2a, type: 3}
     - {fileID: 21300000, guid: 957585dcec0cf594abaceaa78955d854, type: 3}
+    - {fileID: 21300000, guid: f4c06b8e5405dc94fb61fe04b1def531, type: 3}
     - {fileID: 21300000, guid: cbb51855bed606a488857b172c014bbc, type: 3}
     - {fileID: 21300000, guid: 0b80fe1a5dbb9644dab70f302d271b27, type: 3}
     EyeRight:
     - {fileID: 21300000, guid: f11e77229d419184e9388095d3d59d37, type: 3}
+    - {fileID: 21300000, guid: 4161be5893bd4244dbd06803e92863e9, type: 3}
     - {fileID: 21300000, guid: 6205a94038a8f454b849b5d50291dbf1, type: 3}
     - {fileID: 21300000, guid: fbe2a086f639174429d5389c48edaa66, type: 3}
+    - {fileID: 21300000, guid: c8124b702d4535241a62ce501f41908e, type: 3}
+    - {fileID: 21300000, guid: 22f68e1830ac049468d9893350476fe4, type: 3}
+    - {fileID: 21300000, guid: 7e1bd965e8377164fb76ea262b511a66, type: 3}
+    - {fileID: 21300000, guid: 03029f80eef399e49996dbee0e8f9c4e, type: 3}
+    - {fileID: 21300000, guid: 07b376aa6a4c4d843a83f98704793ca0, type: 3}
+    - {fileID: 21300000, guid: b298bd5256a4ed74398165f5fe56cbda, type: 3}
+    - {fileID: 21300000, guid: fd79c5a8f3116304ca4e9fbb20d56191, type: 3}
+    - {fileID: 21300000, guid: e637c5f6d606a7a44a0678f6d4cc9638, type: 3}
+    - {fileID: 21300000, guid: c7742cd4eb66cf0428af1efbace734c4, type: 3}
+    - {fileID: 21300000, guid: 6d1ecc0fcbaae1745b556c4b10b441f9, type: 3}
+    - {fileID: 21300000, guid: 81b9ee6d8eef48e4484c07d6d66dfb11, type: 3}
+    - {fileID: 21300000, guid: 1175ef79d9f8d6b4aa5c6fabf5866e20, type: 3}
+    - {fileID: 21300000, guid: 6d3f3b9516c0c7547bbb7dc30845f971, type: 3}
     - {fileID: 21300000, guid: 4ee7beed6d2aef84c950c53111868379, type: 3}
+    - {fileID: 21300000, guid: 29abc5d97e02b8447a09fa3389fa3134, type: 3}
     - {fileID: 21300000, guid: fcde19e8892f8c641b643abb7e153c0c, type: 3}
     - {fileID: 21300000, guid: 90444bbae65e1a944b5b4fd534526da6, type: 3}
     Nose:
     - {fileID: 21300000, guid: 07770d3d71b68194ea57d568ecd44f1c, type: 3}
+    - {fileID: 21300000, guid: e79df6054be726e459c4347bb3d3b1ec, type: 3}
     - {fileID: 21300000, guid: 159eb3e4b9272704f8e4659dd0c5d047, type: 3}
     - {fileID: 21300000, guid: ba105e1dd97a2fa43a84d6453b7085cc, type: 3}
+    - {fileID: 21300000, guid: 96b7f6dd5db29094285dd673945b3ae3, type: 3}
+    - {fileID: 21300000, guid: 27ff6c5ab97d8144f9d1cd1cec0662dd, type: 3}
+    - {fileID: 21300000, guid: d11c440545230a943a543cef794edd96, type: 3}
+    - {fileID: 21300000, guid: 890530fa8b05e024385e812c1da90f52, type: 3}
+    - {fileID: 21300000, guid: 271c589d35ca1884b91367b0391c1439, type: 3}
+    - {fileID: 21300000, guid: e998bb34735c4e24697f3da4f5b8063c, type: 3}
     - {fileID: 21300000, guid: 962c9beb43a50aa48b75341be4fb76a2, type: 3}
+    - {fileID: 21300000, guid: fccd716616603d840ac15b5ecaf06c82, type: 3}
     - {fileID: 21300000, guid: b359769efcb5515478aefec7832f3530, type: 3}
     - {fileID: 21300000, guid: bdcc67d667958e94f95aefcc76a8b5f7, type: 3}
     Mouth:
     - {fileID: 21300000, guid: 46222aab3ae1c394ea9613833f94d6cb, type: 3}
+    - {fileID: 21300000, guid: 002c065ab0c3ec340b18795fa1efd1f9, type: 3}
     - {fileID: 21300000, guid: c1c5a640feeddcd4c9d64f18cb810edb, type: 3}
     - {fileID: 21300000, guid: 3df9cfb7cb39e78409dbdadce23296fa, type: 3}
+    - {fileID: 21300000, guid: 19b3d5e12fe804c458964e1857f4b0c1, type: 3}
+    - {fileID: 21300000, guid: 3e86cf09588f2bd42ab0549b3cd29cc9, type: 3}
+    - {fileID: 21300000, guid: 8570129b42b6331419a9aea9fc394510, type: 3}
+    - {fileID: 21300000, guid: c4e5af5f08aecec4ea4fa830e407a879, type: 3}
+    - {fileID: 21300000, guid: e74f5a575dd00e0478ce763602ad7877, type: 3}
+    - {fileID: 21300000, guid: f43f884c7e156884c83a479ba808fbb5, type: 3}
+    - {fileID: 21300000, guid: c52d3f0efe154ce4780a3f55586f5e77, type: 3}
+    - {fileID: 21300000, guid: 56718153e76e5954db3959206713251d, type: 3}
+    - {fileID: 21300000, guid: 961a2c3ebac13b44498d2c0109176946, type: 3}
+    - {fileID: 21300000, guid: d4c3385e6ccbd77409ea0fb05869e5e5, type: 3}
+    - {fileID: 21300000, guid: e7d38975c6a570e40bd7d4cd7c2f5e13, type: 3}
+    - {fileID: 21300000, guid: d41d91d12577a894b8b7b5435af64b7e, type: 3}
+    - {fileID: 21300000, guid: 7ce0d8021a1fa474cb0e386113d2b55c, type: 3}
+    - {fileID: 21300000, guid: 66fbfa2f15063734eb88c3638e8c1e17, type: 3}
+    - {fileID: 21300000, guid: 3ae4480676ae4ee429356fa442ecbb34, type: 3}
+    - {fileID: 21300000, guid: 79d07b6ceec139042b448d1c530f578e, type: 3}
     - {fileID: 21300000, guid: c1c415dc06c179b43942b435d4141a25, type: 3}
+    - {fileID: 21300000, guid: 7041840b30107b24982c59f61d672702, type: 3}
     - {fileID: 21300000, guid: 6d02f2bba3fe96e418aee73cea4e2472, type: 3}
     - {fileID: 21300000, guid: 2dc783e3e70971b4d8619564cddb15dd, type: 3}
     EyebrowLeft: []
     EyebrowRight: []
     spriteBase:
-    - {fileID: 21300000, guid: 12b8a7605288cba48a6504471bb73838, type: 3}
     - {fileID: 21300000, guid: 31b94f8938b52e84e86760e450eeff23, type: 3}
+    - {fileID: 21300000, guid: 552b0d468616f5c4ba5e0a4c582da60c, type: 3}
+    - {fileID: 21300000, guid: ff8b24aad557047439bf912bd6b5cb0b, type: 3}
+    - {fileID: 21300000, guid: 85765afa589246c49b9eaaad9f3d2ae4, type: 3}
     - {fileID: 21300000, guid: 924c7d9aa4aa0ef4d91b648ec611c239, type: 3}
     BGM: {fileID: 8300000, guid: 8fee79c0055c3ff4c83e39dd3d73b28a, type: 3}
     NorthDudeAudio:
